@@ -1,8 +1,18 @@
 <div class="main">
   <h1>Angular Todo List</h1>
-  <h2>What do we want to do today?</h2>
+  <label for="addItemInput">What do you want to do? </label>
+  <input
+    #newItem
+    placeholder="add an item"
+    (keyup.enter)="addItem(newItem.value); newItem.value=''"
+    class="lg-text-input"
+    id="addItemInput"
+  />
+
+  <button class="btn-primary" (click)="addItem(newItem.value)">Add</button>
 
   <ul>
     <li *ngFor="let item of items">{{item.description}}</li>
   </ul>
+
 </div>
