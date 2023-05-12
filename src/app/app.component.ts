@@ -1,5 +1,6 @@
 
 import { Component} from "@angular/core";
+import {Item} from "./item";
 
 @Component({
   selector: "app-root",
@@ -9,7 +10,7 @@ import { Component} from "@angular/core";
 export class AppComponent {
   title = "todo";
 
-  filter: "all" | "active" | "done" = "all"
+  filter: "all" | "active" | "done" = "all";
 
   allItems = [
     {
@@ -38,5 +39,9 @@ export class AppComponent {
       description,
       done: false
     })
+  }
+
+  remove(item: Item) {
+    this.allItems.splice(this.allItems.indexOf(item), 1)
   }
 }
